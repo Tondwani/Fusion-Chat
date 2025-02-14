@@ -1,1 +1,16 @@
 # Ignore signup.html
+
+ 
+
+#ffffff
+
+/* Rectangle 5 */
+
+position: absolute;
+width: 968px;
+height: 1077px;
+left: 417px;
+top: 275px;
+
+background: rgba(217, 217, 217, 0.42);
+border-radius: 104px;
