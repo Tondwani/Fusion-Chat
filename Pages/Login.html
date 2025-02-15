@@ -13,22 +13,43 @@
     <div class="login-container">
         <div class="login-box">
             <h1 class="login-title">LOGIN</h1>
-            <form class="login-form">
-                <div class="input-group">
-                    <i class="fas fa user"></i>
-                    <input type="text" placeholder="Username" required> 
+            <form id="login-form" class="login-form">
+                <div class="input-group" action="login" method="POST">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required> 
                 </div>
                 <div class="input-group">
-                    <i class="fas fa user"></i>
-                    <input type="text" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                    <input type="text" id="password" placeholder="Password" required>
                 </div>
                 <button type="submit" class="login-button">login</button>
                 <a href="#" class="forgot passwor"> forgot Password ?</a>     
-
             </form>
-        </div>
-            
-    </div>    
+        </div>            
+    </div>
+    <script>
+        // logic login logic //
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // prevent form submission
+
+            // Get user input
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve users from Local Storage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Validate credentials
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                alert('Login successful! Redirecting to dashboard...');
+                window.location.href = 'dashboard.html'; // Redirect to dashboard
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+    </script>    
 </body>
 </html>
 
