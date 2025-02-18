@@ -4,31 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Login </title>
-    <link  href="https://fonts.googleaps.com/css2?family=inter:wght@400display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Style/Login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../JavaScript/Menu.js"></script>  
 
 </head>
 <body>
     <div class="login-container">
         <div class="login-box">
             <h1 class="login-title">LOGIN</h1>
-            <form class="login-form">
+            <form id="login-form" class="login-form">
                 <div class="input-group">
-                    <i class="fas fa user"></i>
-                    <input type="text" placeholder="Username" required> 
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required> 
                 </div>
                 <div class="input-group">
-                    <i class="fas fa user"></i>
-                    <input type="text" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
                 </div>
-                <button type="submit" class="login-button">login</button>
-                <a href="#" class="forgot passwor"> forgot Password ?</a>     
-
+                <button type="submit" class="login-button">login</button>   
             </form>
-        </div>
-            
-    </div>    
+        </div>            
+    </div>
+    <script>
+        // logic login logic //
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // prevent form submission
+
+            // Get user input
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve users from Local Storage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            // Validate credentials
+            const user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                window.location.href = 'Menu.html'; // Redirect to dashboard
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+    </script>    
 </body>
 </html>
 

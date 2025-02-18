@@ -70,12 +70,13 @@ padding: 15px;
 }
 
 .contact-item {
-display: flex;
-align-items: center;
-padding: 10px;
-border-radius: 8px;
-margin-bottom: 5px;
-cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  background: #fff;
 }
 
 .contact-item:hover {
@@ -105,6 +106,20 @@ margin-bottom: 20px;
 max-width: 70%;
 }
 
+.contact-name {
+  font-size: 14px;
+  color: #333;
+}
+
+.contact-active {
+  background: #f8f9fa;
+}
+
+.contact-status {
+  color: #007bff;
+  margin-left: 5px;
+  font-size: 12px;
+}
 .message-sent {
 margin-left: auto;
 }

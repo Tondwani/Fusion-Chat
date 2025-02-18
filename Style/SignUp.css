@@ -35,7 +35,7 @@ body{
 .Sign .Up-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 .input-group {
@@ -61,7 +61,7 @@ body{
     background: none;
     outline: none;
     flex: 1;
-    padding: 5px;
+    padding: 3px;
     font-size: 1rem;
     color: #333;
 }
@@ -73,7 +73,7 @@ body{
 .Sign .Up-button {
     background-color: #000;
     color: whitesmoke;
-    width: 100px;
+    width: 90px;
     margin: 0 auto;
     padding: 1rem;
     border: none;
