@@ -6,70 +6,38 @@
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../Style/Menu.css">
+    <script src="../JavaScript/Menu.js"></script>    
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
+            <span id="userName"></span>
             <div class="search-container">
                 <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search">
+                <input type="text" id="searchInput" placeholder="Search">
             </div>
             <div class="chat-title">Fusion-Chat</div>
-            <button class="logout-btn">
+            <button class="logout-btn" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
             </button>
         </div>
         
         <div class="chat-content">
-            <div class="contacts-list">
-                <div class="contact-item">
-                    <div class="contact-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span>User 1</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span>User 2</span>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-avatar">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <span>Group 1</span>
-                </div>
+            <div id="current-user"></div>
+            <div class="contacts-list" id="contactList">
+                <!-- Contacts will be dynamically added here -->
             </div>
             
-            <div class="chat-messages">
-                <div class="message message-received">
-                    <div class="message-content">
-                        Hey! How are you?
-                    </div>
-                    <div class="message-info">
-                        <span>User 1</span>
-                        <span>12:54</span>
-                    </div>
-                </div>
-                
-                <div class="message message-sent">
-                    <div class="message-content">
-                        Great! wena?
-                    </div>
-                    <div class="message-info">
-                        <span>12:59</span>
-                    </div>
-                </div>
+            <div class="chat-messages" id="chatMessages">
             </div>
         </div>
         
         <div class="chat-input">
-            <button class="attachment-btn">
+            <button class="attachment-btn" id="attachBtn">
                 <i class="fas fa-paperclip"></i>
             </button>
-            <input type="text" class="message-input" placeholder="Type message here">
-            <button class="send-btn">
+            <input type="text" id="messageInput" class="message-input" placeholder="Type message here">
+            <button class="send-btn" id="sendBtn">
                 <i class="fas fa-paper-plane"></i>
             </button>
         </div>
