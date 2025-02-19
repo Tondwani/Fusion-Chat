@@ -3,23 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User</title>
-    <link rel="stylesheet" href="../Style/User.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>User Profile</title>
+    <style>
+
+.profile-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+.profile-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 400px; 
+    box-sizing: border-box; 
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.profile-avatar {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.profile-details p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .profile-modal-content {
+        margin: 20% auto; 
+        width: 80%; 
+    }
+
+    .profile-avatar {
+        font-size: 40px; 
+    }
+
+    .profile-details p {
+        font-size: 16px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-modal-content {
+        margin: 25% auto; 
+        width: 90%; 
+    }
+
+    .profile-avatar {
+        font-size: 30px; 
+    }
+
+    .profile-details p {
+        font-size: 14px; 
+    }
+}
+
+    </style>
 </head>
 <body>
-    <div class="=card">
-        <h2 class="card-title">User Profile</h2>
-        <div class="avatar">
-            <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" xmlns="https://www.ww3.org/2000/svg">
-                <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>    
-            </svg>
+
+<div id="userProfileModal" class="profile-modal">
+    <div class="profile-modal-content">
+        <span id="closeProfile" class="close-btn">&times;</span>
+        <div class="profile-info">
+            <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="profile-details">
+                <p id="profile-name"></p>
+                <p id="profile-email"></p>
+            </div>
         </div>
-        <div class="Profile-info">
-            <div  class="Profile-field">Name</div>
-        </div>
-        </div>
-    </div>    
-    
+    </div>
+</div>
+
+    <script>
+    function openUserProfile(username) {
+        const userslst = JSON.parse(localStorage.getItem("users")) || [];
+        const user = userslst.find(user => user.username === username);
+
+        if (user) {
+            document.getElementById("userProfileModal").style.display = "block";
+            document.getElementById("profile-name").textContent = `Name: ${user.username}`;
+            document.getElementById("profile-email").textContent = `Email: ${user.email}`;
+        }
+    }
+
+    document.getElementById("closeProfile").onclick = () => {
+        document.getElementById("userProfileModal").style.display = "none";
+    };
+
+    window.onclick = (event) => {
+        const modal = document.getElementById("userProfileModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+    </script>
 </body>
 </html>

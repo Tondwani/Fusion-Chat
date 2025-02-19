@@ -1,5 +1,5 @@
 *{
-margin: 1;
+margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: Arial, sans-serif;
@@ -185,6 +185,8 @@ font-size: 1.2em;
 color: #007bff;
 }
 
+
+
 .logout-btn {
   background: none;
   border: none;
@@ -192,3 +194,22 @@ color: #007bff;
   font-size: 1.2em;
   color: #007bff;
 }
+
+
+/* Additional responsive adjustments */
+@media (max-width: 480px) {
+  .chat-container {
+    margin: 0;
+    height: 100vh;
+    border-radius: 0;
+  }
+ 
+  .message {
+    max-width: 85%;
+  }
+ 
+  .chat-header {
+    padding: 10px;
+  }
+}
+
