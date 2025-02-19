@@ -60,6 +60,16 @@ document.addEventListener("DOMContentLoaded", () => {
             messageElement.className = "message";
             messageElement.textContent = `${message.from}: ${message.text} (${message.time})`;
             messagesContainer.appendChild(messageElement);
+            // Determine if the message is sent or received
+            if (message.from === currentUser) {
+            messageElement.classList.add("sent");
+            } else {
+            messageElement.classList.add("received");
+            }
+          
+            // Display the message content
+            messageElement.textContent = `${message.from}: ${message.text} (${message.time})`;
+            messagesContainer.appendChild(messageElement);
           }
         });
       }

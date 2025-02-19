@@ -103,10 +103,16 @@ body {
 
 .message-sent {
   align-self: flex-end;
+  background-color: white;
+  color: smokewhite;
+
 }
 
 .message-received {
   align-self: flex-start;
+  background-color:gray;
+  color: smokewhite;
+
 }
 
 .message-content {
