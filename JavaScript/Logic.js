@@ -3,22 +3,25 @@ document.addEventListener('DOMContentLoaded', function() {
     logoutButton.addEventListener('click', logout);
     const searchInput = document.getElementById('searchInput');
     const contactItems = document.querySelectorAll('.contact-item');
+    const attachBtn = document.getElementById('attachBtn');
+    const fileInput = document.getElementById('fileInput');
 });
 
-document.getElementById('attachBtn').addEventListener('click', function() {
-    document.getElementById('fileInput').click();
-});
+    if (attachBtn && fileInput) {
+        attachBtn.addEventListener('click', function() {
+            fileInput.click();
+        });
 
-document.getElementById('fileInput').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file && file.type === 'application/pdf') {
-        console.log('PDF attached:', file.name);
-    } else {
-        alert('Please select a PDF file.');
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                console.log('PDF attached:', file.name);
+            } else {
+                alert('Please select a PDF file.');
+            }
+        });
     }
-});
 
-// Search functionality
 searchContacts(searchTerm) ;{
     this.contactItems.forEach(contact => {
         const contactName = contact.querySelector('span').textContent.toLowerCase();
@@ -34,10 +37,5 @@ searchInput.addEventListener('keypress', function(event) {
     }
 });
 
-// Real-time updates simulation
-startRealTimeUpdates() ;{
-    setInterval(() => {
-        this.checkForNewMessages();
-    }, 2000); // Check every 3 seconds
-}
+
 
