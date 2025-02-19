@@ -88,6 +88,20 @@ CSS3 for styling and responsive design.
 
 JavaScript for dynamic functionality.
 
+Functionality 
+
+User Authentication
+• Users should be able to sign up.
+• Users should be able to log in.
+• Users should be able to log out.
+Real-Time Chat Features
+• Display online users.
+• Enable users to send and receive messages in real-time.
+• Support both group and private chat.
+Data Persistence
+• Persist chat messages using localStorage to retain messages after page refresh.
+• Store user data in JSON for long-term stora
+
 
 Contributing
 
